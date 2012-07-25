@@ -16,7 +16,8 @@ import java.util.List;
 public class TestRunner {
     public static void main(String[] args) throws Throwable{
         List<Class> classList = new ArrayList<Class>();
-        classList.add(WrapperTest.class);
+        classList.add(EnumerableTest.class);
+        classList.add(WhereTest.class);
 
         try {
             for (Class klass : classList) {
