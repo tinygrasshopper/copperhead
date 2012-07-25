@@ -1,5 +1,35 @@
 package org.copperhead;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.copperhead.test.framework.TestAsserter.assertEquals;
+import static org.copperhead.test.framework.TestAsserter.assertFalse;
+import static org.copperhead.test.framework.TestAsserter.assertTrue;
+
 public class SelectTest {
+    public void shouldProjectFromClass(){
+        List<String> strings = new ArrayList<String>();
+        strings.add("aaaa");
+        strings.add("aaaaa");
+        strings.add("aaaaaa");
+
+        Enumerable<Integer> result = Wrapper.enumerate(strings)
+                .select(new Proc<String, Integer>() { public Integer map(String p) { return new Integer(p.length()); }});
+
+        assertTrue(result.moveNext());
+        assertEquals(new Integer(4), result.current());
+
+        assertTrue(result.moveNext());
+        assertEquals(new Integer(5), result.current());
+
+        assertTrue(result.moveNext());
+        assertEquals(new Integer(6), result.current());
+
+
+        assertFalse(result.moveNext());
+    }
+
+
 }

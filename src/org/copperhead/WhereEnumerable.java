@@ -2,10 +2,10 @@ package org.copperhead;
 
 public class WhereEnumerable<T> extends Enumerable<T> {
     private Enumerable<T> inner;
-    private Lambda<T> condition;
+    private Condition<T> condition;
     private T current;
 
-    public WhereEnumerable(Enumerable<T> inner, Lambda<T> condition) {
+    public WhereEnumerable(Enumerable<T> inner, Condition<T> condition) {
         this.inner = inner;
         this.condition = condition;
     }

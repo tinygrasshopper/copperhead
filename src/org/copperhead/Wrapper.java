@@ -10,7 +10,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class Wrapper {
-    public static <T> Enumerable<T> Enumerate(List<T> list) {
+    public static <T> Enumerable<T> enumerate(List<T> list) {
         return new ListEnumerable<T>(list);
     }
 }

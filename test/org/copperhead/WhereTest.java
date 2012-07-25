@@ -1,10 +1,9 @@
 package org.copperhead;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
+import static org.copperhead.Wrapper.enumerate;
 import static org.copperhead.test.framework.TestAsserter.assertEquals;
 import static org.copperhead.test.framework.TestAsserter.assertFalse;
 import static org.copperhead.test.framework.TestAsserter.assertTrue;
@@ -17,8 +16,8 @@ public class WhereTest {
         strings.add("two1");
         strings.add("three2");
 
-        Enumerable<String> val =  Wrapper.Enumerate(strings)
-                .where(new Lambda<String>() { public boolean filter(String p) { return p.endsWith("1");}});
+        Enumerable<String> val =  enumerate(strings)
+                .where(new Condition<String>() { public boolean filter(String p) { return p.endsWith("1");}});
 
         assertTrue(val.moveNext());
         assertEquals("one1", val.current());
@@ -32,9 +31,9 @@ public class WhereTest {
         strings.add("two1");
         strings.add("three2");
 
-        Enumerable<String> val =  Wrapper.Enumerate(strings)
-                .where(new Lambda<String>() { public boolean filter(String p) { return p.endsWith("1");}})
-                .where(new Lambda<String>() { public boolean filter(String p) { return p.startsWith("o");}});
+        Enumerable<String> val =  enumerate(strings)
+                .where(new Condition<String>() { public boolean filter(String p) { return p.endsWith("1");}})
+                .where(new Condition<String>() { public boolean filter(String p) { return p.startsWith("o");}});
 
         assertTrue(val.moveNext());
         assertEquals("one1", val.current());

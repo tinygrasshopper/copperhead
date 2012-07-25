@@ -1,5 +1,5 @@
 package org.copperhead;
 
-public interface Lambda<T> {
+public interface Condition<T> {
     public boolean filter(T p);
 }

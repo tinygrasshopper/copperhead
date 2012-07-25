@@ -18,6 +18,7 @@ public class TestRunner {
         List<Class> classList = new ArrayList<Class>();
         classList.add(EnumerableTest.class);
         classList.add(WhereTest.class);
+        classList.add(SelectTest.class);
 
         try {
             for (Class klass : classList) {
@@ -25,6 +26,7 @@ public class TestRunner {
                     Object testClassInstance = klass.newInstance();
                     for (Method method : klass.getMethods()) {
                         if (method.getName().startsWith("should")) {
+                            System.out.println(testClassInstance.getClass().getName()+ " " + method.getName());
                             method.invoke(testClassInstance);
                         }
                     }

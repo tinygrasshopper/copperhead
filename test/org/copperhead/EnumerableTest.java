@@ -14,7 +14,7 @@ public class EnumerableTest {
         strings.add("2");
         strings.add("1");
 
-        Enumerable<String> enumerate = Wrapper.Enumerate(strings);
+        Enumerable<String> enumerate = Wrapper.enumerate(strings);
 
         assertTrue(enumerate.moveNext());
         assertEquals("3", enumerate.current());
