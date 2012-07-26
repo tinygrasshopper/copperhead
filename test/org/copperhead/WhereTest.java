@@ -17,7 +17,7 @@ public class WhereTest {
         strings.add("three2");
 
         Enumerable<String> val =  enumerate(strings)
-                .where(new Condition<String>() { public boolean filter(String p) { return p.endsWith("1");}});
+                .where(new Condition<String>() { public boolean exec(String p) { return p.endsWith("1");}});
 
         assertTrue(val.moveNext());
         assertEquals("one1", val.current());
@@ -32,8 +32,8 @@ public class WhereTest {
         strings.add("three2");
 
         Enumerable<String> val =  enumerate(strings)
-                .where(new Condition<String>() { public boolean filter(String p) { return p.endsWith("1");}})
-                .where(new Condition<String>() { public boolean filter(String p) { return p.startsWith("o");}});
+                .where(new Condition<String>() { public boolean exec(String p) { return p.endsWith("1");}})
+                .where(new Condition<String>() { public boolean exec(String p) { return p.startsWith("o");}});
 
         assertTrue(val.moveNext());
         assertEquals("one1", val.current());

@@ -16,7 +16,7 @@ public class SelectTest {
         strings.add("aaaaaa");
 
         Enumerable<Integer> result = Wrapper.enumerate(strings)
-                .select(new Proc<String, Integer>() { public Integer map(String p) { return new Integer(p.length()); }});
+                .select(new Func<String, Integer>() { public Integer exec(String p) { return new Integer(p.length()); }});
 
         assertTrue(result.moveNext());
         assertEquals(new Integer(4), result.current());

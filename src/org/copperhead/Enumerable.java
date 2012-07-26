@@ -13,7 +13,7 @@ public abstract class Enumerable<T>  {
 
     abstract T current();
 
-    public <V> Enumerable<V> select(Proc<T,V> proc) {
-        return new SelectEnumberable<T,V>(this, proc);
+    public <V> Enumerable<V> select(Func<T,V> func) {
+        return new SelectEnumerable<T,V>(this, func);
     }
 }

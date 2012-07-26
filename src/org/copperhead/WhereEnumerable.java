@@ -14,7 +14,7 @@ public class WhereEnumerable<T> extends Enumerable<T> {
     public boolean moveNext() {
         while(inner.moveNext()){
             current = inner.current();
-            if(condition.filter(current))
+            if(condition.exec(current))
                 return true;
         }
         return false;
