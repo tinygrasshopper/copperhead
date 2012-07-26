@@ -1,5 +1,5 @@
 package org.copperhead;
 
-public interface Func<T, V> {
+public interface Map<T, V> {
     public V exec(T p);
 }

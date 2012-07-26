@@ -17,6 +17,7 @@ public class WhereTest {
         strings.add("three2");
 
         Enumerable<String> val =  enumerate(strings)
+                .where(new Condition<String>() { public boolean exec(String p) { return p.endsWith("1");}})
                 .where(new Condition<String>() { public boolean exec(String p) { return p.endsWith("1");}});
 
         assertTrue(val.moveNext());

@@ -19,6 +19,7 @@ public class TestRunner {
         classList.add(EnumerableTest.class);
         classList.add(WhereTest.class);
         classList.add(SelectTest.class);
+        classList.add(ReduceTest.class);
 
         try {
             for (Class klass : classList) {

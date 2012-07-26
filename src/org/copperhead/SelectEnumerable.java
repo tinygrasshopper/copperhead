@@ -2,18 +2,18 @@ package org.copperhead;
 
 public class SelectEnumerable<T, V> extends Enumerable<V> {
     private final Enumerable<T> inner;
-    private final Func<T, V> func;
+    private final Map<T, V> map;
     private V current;
 
-    public SelectEnumerable(Enumerable<T> inner, Func<T, V> func) {
+    public SelectEnumerable(Enumerable<T> inner, Map<T, V> map) {
         this.inner = inner;
-        this.func = func;
+        this.map = map;
     }
 
     @Override
     boolean moveNext() {
         while(inner.moveNext()){
-            current = func.exec(inner.current());
+            current = map.exec(inner.current());
             return true;
         }
         return false;
