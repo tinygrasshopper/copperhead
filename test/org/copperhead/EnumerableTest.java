@@ -51,10 +51,16 @@ public class EnumerableTest {
         strings[2] = "1";
         Enumerable<String> enumerate = enumerate(strings);
 
-        int counter = 3;
-        for(String string:enumerate){
-            assertEquals(String.valueOf(counter--),string);
-        }
+        assertTrue(enumerate.moveNext());
+        assertEquals("3", enumerate.current());
+
+        assertTrue(enumerate.moveNext());
+        assertEquals("2", enumerate.current());
+
+        assertTrue(enumerate.moveNext());
+        assertEquals("1", enumerate.current());
+
+        assertFalse(enumerate.moveNext());
     }
 
 }
