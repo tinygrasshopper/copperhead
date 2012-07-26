@@ -1,5 +1,7 @@
 package org.copperhead;
 
+import org.copperhead.lambda.Map;
+
 public class SelectEnumerable<T, V> extends Enumerable<V> {
     private final Enumerable<T> inner;
     private final Map<T, V> map;
@@ -11,7 +13,7 @@ public class SelectEnumerable<T, V> extends Enumerable<V> {
     }
 
     @Override
-    boolean moveNext() {
+    public boolean moveNext() {
         while(inner.moveNext()){
             current = map.exec(inner.current());
             return true;
@@ -20,7 +22,7 @@ public class SelectEnumerable<T, V> extends Enumerable<V> {
     }
 
     @Override
-    V current() {
+    public V current() {
         return current;
     }
 }

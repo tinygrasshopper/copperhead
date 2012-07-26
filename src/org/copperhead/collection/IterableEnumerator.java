@@ -1,4 +1,6 @@
-package org.copperhead;
+package org.copperhead.collection;
+
+import org.copperhead.Enumerable;
 
 import java.util.Iterator;
 

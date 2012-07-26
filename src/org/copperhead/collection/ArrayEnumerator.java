@@ -1,4 +1,6 @@
-package org.copperhead;
+package org.copperhead.collection;
+
+import org.copperhead.Enumerable;
 
 public class ArrayEnumerator<T> extends Enumerable<T> {
     private T[] array;
@@ -10,12 +12,12 @@ public class ArrayEnumerator<T> extends Enumerable<T> {
     }
 
     @Override
-    boolean moveNext() {
+    public boolean moveNext() {
         return ++counter < array.length;
     }
 
     @Override
-    T current() {
+    public T current() {
         return array[counter];
     }
 }

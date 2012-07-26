@@ -1,5 +1,7 @@
 package org.copperhead;
 
+import org.copperhead.lambda.Condition;
+
 public class WhereEnumerable<T> extends Enumerable<T> {
     private Enumerable<T> inner;
     private Condition<T> condition;

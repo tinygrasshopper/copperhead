@@ -1,9 +1,14 @@
 package org.copperhead;
 
-public abstract class Enumerable<T> implements Iterable<T>  {
-    abstract boolean moveNext();
+import org.copperhead.iterator.EnumerableIterator;
+import org.copperhead.lambda.Condition;
+import org.copperhead.lambda.Map;
+import org.copperhead.lambda.Reducer;
 
-    abstract T current();
+public abstract class Enumerable<T> implements Iterable<T>  {
+    public abstract boolean moveNext();
+
+    public abstract T current();
 
     public <V> Enumerable<V> select(Map<T,V> map) {
         return new SelectEnumerable<T,V>(this, map);
