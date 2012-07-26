@@ -1,10 +1,6 @@
 package org.copperhead;
 
-public abstract class Enumerable<T>  {
-    public void remove() {
-        throw new RuntimeException();
-    }
-
+public abstract class Enumerable<T> implements Iterable<T>  {
     public Enumerable<T> where(Condition<T> condition) {
         return new WhereEnumerable<T>(this, condition);
     }
@@ -15,5 +11,9 @@ public abstract class Enumerable<T>  {
 
     public <V> Enumerable<V> select(Func<T,V> func) {
         return new SelectEnumerable<T,V>(this, func);
+    }
+
+    public java.util.Iterator<T> iterator(){
+        return new EnumerableIterator<T>(this);
     }
 }
