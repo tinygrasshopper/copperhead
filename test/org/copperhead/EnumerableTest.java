@@ -38,8 +38,22 @@ public class EnumerableTest {
         List<String> strings = someStrings();
         Enumerable<String> enumerate = enumerate(strings);
 
+        int counter = 3;
         for(String string:enumerate){
+            assertEquals(String.valueOf(counter--),string);
+        }
+    }
 
+    public void shouldWorkWithArrays(){
+        String[] strings = new String [3];
+        strings[0] = "3";
+        strings[1] = "2";
+        strings[2] = "1";
+        Enumerable<String> enumerate = enumerate(strings);
+
+        int counter = 3;
+        for(String string:enumerate){
+            assertEquals(String.valueOf(counter--),string);
         }
     }
 
