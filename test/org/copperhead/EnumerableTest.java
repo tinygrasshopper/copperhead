@@ -1,5 +1,8 @@
 package org.copperhead;
 
+import com.sun.xml.internal.ws.server.StatefulInstanceResolver;
+import org.copperhead.lambda.Condition;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,6 +64,19 @@ public class EnumerableTest {
         assertEquals("1", enumerate.current());
 
         assertFalse(enumerate.moveNext());
+    }
+
+    public void shouldCheckIfConditionTrueForAll(){
+        String[] strings = new String [3];
+        strings[0] = "3";
+        strings[1] = "2";
+        strings[2] = "1";
+
+        assertTrue(enumerate(strings).all(new Condition<String>() { public boolean exec(String p) { return p.length() == 1;}}));
+        assertTrue(enumerate(strings).any(new Condition<String>() { public boolean exec(String p) { return p == "1";}}));
+
+        assertFalse(enumerate(strings).any(new Condition<String>() { public boolean exec(String p) { return p == "4";}}));
+        assertFalse(enumerate(strings).all(new Condition<String>() { public boolean exec(String p) { return p == "1";}}));
     }
 
 }

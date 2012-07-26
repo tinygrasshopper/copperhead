@@ -35,4 +35,18 @@ public abstract class Enumerable<T> implements Iterable<T>  {
             result = reducer.exec(item, result);
         return result;
     }
+
+    public boolean all(Condition<T> condition){
+        for(T item: this)
+            if(!condition.exec(item))
+                return false;
+        return true;
+    }
+
+    public boolean any(Condition<T> condition){
+        for(T item: this)
+            if(condition.exec(item))
+                return true;
+        return false;
+    }
 }
