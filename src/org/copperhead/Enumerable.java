@@ -49,4 +49,35 @@ public abstract class Enumerable<T> implements Iterable<T>  {
                 return true;
         return false;
     }
+
+    public T last() {
+        return this.last(new Condition<T>() {
+           public boolean exec(T p) {
+                return true;
+            }
+        });
+    }
+
+    public T last(Condition<T> condition) {
+        T lastValidItem = null;
+        for(T item: this)
+            if(condition.exec(item))
+                lastValidItem = item;
+        return lastValidItem;
+    }
+
+    public T first() {
+        return this.first(new Condition<T>() {
+            public boolean exec(T p) {
+                return true;
+            }
+        });
+    }
+
+    public T first(Condition<T> condition) {
+        for(T item: this)
+            if(condition.exec(item))
+                return item;
+        return null;
+    }
 }
