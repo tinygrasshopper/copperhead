@@ -20,6 +20,9 @@ public class TestRunner {
         classList.add(WhereTest.class);
         classList.add(SelectTest.class);
         classList.add(ReduceTest.class);
+        classList.add(SkipTest.class);
+        classList.add(ConcatTest.class);
+        classList.add(RangeTest.class);
 
         try {
             for (Class klass : classList) {
