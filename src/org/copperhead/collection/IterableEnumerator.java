@@ -7,6 +7,7 @@ import java.util.Iterator;
 public class IterableEnumerator<T> extends Enumerable<T> {
 
     private final Iterator<T> iterator;
+    private T current;
 
     public IterableEnumerator(Iterable<T> iterable) {
         this.iterator = iterable.iterator();
@@ -14,16 +15,16 @@ public class IterableEnumerator<T> extends Enumerable<T> {
 
     @Override
     public boolean moveNext() {
-        return iterator.hasNext();
+        if(iterator.hasNext()){
+            current = iterator.next();
+            return true;
+        }
+        else return false;
     }
 
     @Override
     public T current() {
-        if (moveNext()) {
-            return iterator.next();
-        } else {
-            return null;
-        }
+        return current;
     }
 
 }

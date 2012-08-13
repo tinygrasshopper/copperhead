@@ -80,4 +80,10 @@ public abstract class Enumerable<T> implements Iterable<T>  {
                 return item;
         return null;
     }
+
+    public SkipEnumerable<T> skip(int count) {
+        return new SkipEnumerable<T>(this, count);
+    }
+
+
 }
