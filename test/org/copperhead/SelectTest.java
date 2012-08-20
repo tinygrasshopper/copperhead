@@ -17,7 +17,7 @@ public class SelectTest {
         strings.add("aaaaa");
         strings.add("aaaaaa");
 
-        Enumerable<Integer> result = Wrapper.enumerate(strings)
+        Enumerable<Integer> result = EnumeratorFactory.enumerate(strings)
                 .select(new Map<String, Integer>() { public Integer exec(String p) { return new Integer(p.length()); }});
 
         assertTrue(result.moveNext());
@@ -39,7 +39,7 @@ public class SelectTest {
         strings.add("aaaaa");
         strings.add("aaaaaa");
 
-        Enumerable<Integer> result = Wrapper.enumerate(strings)
+        Enumerable<Integer> result = EnumeratorFactory.enumerate(strings)
                 .map(new Map<String, Integer>() {
                     public Integer exec(String p) {
                         return new Integer(p.length());

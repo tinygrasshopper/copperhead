@@ -5,7 +5,7 @@ import org.copperhead.lambda.Reducer;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.copperhead.Wrapper.enumerate;
+import static org.copperhead.EnumeratorFactory.enumerate;
 import static org.copperhead.test.framework.TestAsserter.assertEquals;
 
 public class ReduceTest {

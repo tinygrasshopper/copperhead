@@ -3,7 +3,7 @@ package org.copperhead;
 import org.copperhead.collection.ArrayEnumerator;
 import org.copperhead.collection.IterableEnumerator;
 
-public class Wrapper {
+public class EnumeratorFactory {
     public static <T> Enumerable<T> enumerate(java.lang.Iterable<T> list) {
         return new IterableEnumerator<T>(list);
     }

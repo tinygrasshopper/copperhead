@@ -3,10 +3,9 @@ package org.copperhead;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.copperhead.Wrapper.enumerate;
+import static org.copperhead.EnumeratorFactory.enumerate;
 import static org.copperhead.test.framework.TestAsserter.assertEquals;
 import static org.copperhead.test.framework.TestAsserter.assertFalse;
-import static org.copperhead.test.framework.TestAsserter.assertTrue;
 
 public class SkipTest {
     public void shouldSkipAGivenNumberOfElements(){

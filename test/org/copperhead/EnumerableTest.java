@@ -1,12 +1,11 @@
 package org.copperhead;
 
-import com.sun.xml.internal.ws.server.StatefulInstanceResolver;
 import org.copperhead.lambda.Condition;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.copperhead.Wrapper.enumerate;
+import static org.copperhead.EnumeratorFactory.enumerate;
 import static org.copperhead.test.framework.TestAsserter.assertEquals;
 import static org.copperhead.test.framework.TestAsserter.assertFalse;
 import static org.copperhead.test.framework.TestAsserter.assertTrue;
