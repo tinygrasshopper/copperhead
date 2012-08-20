@@ -1,5 +1,6 @@
 package org.copperhead;
 
+import com.sun.deploy.util.ArrayUtil;
 import org.copperhead.iterator.EnumerableIterator;
 import org.copperhead.lambda.Condition;
 import org.copperhead.lambda.Map;
@@ -86,4 +87,7 @@ public abstract class Enumerable<T> implements Iterable<T>  {
     }
 
 
+    public Enumerable<T> concat(Enumerable<T> other) {
+        return new Concat<T>(this, other);
+    }
 }
