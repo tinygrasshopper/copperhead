@@ -82,12 +82,16 @@ public abstract class Enumerable<T> implements Iterable<T>  {
         return null;
     }
 
-    public SkipEnumerable<T> skip(int count) {
+    public Enumerable<T> skip(int count) {
         return new SkipEnumerable<T>(this, count);
     }
 
 
     public Enumerable<T> concat(Enumerable<T> other) {
         return new Concat<T>(this, other);
+    }
+
+    public Enumerable<T> take(int count) {
+        return new TakeEnumerable<T>(this, count);
     }
 }
