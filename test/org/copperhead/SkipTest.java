@@ -6,15 +6,11 @@ import java.util.List;
 import static org.copperhead.EnumeratorFactory.enumerate;
 import static org.copperhead.test.framework.TestAsserter.assertEquals;
 import static org.copperhead.test.framework.TestAsserter.assertFalse;
+import static org.copperhead.test.framework.TestDataGenerator.listOfStrings;
 
 public class SkipTest {
     public void shouldSkipAGivenNumberOfElements(){
-        List<String> strings = new ArrayList<String>();
-        strings.add("1");
-        strings.add("2");
-        strings.add("3");
-        strings.add("4");
-        strings.add("5");
+        List<String> strings = listOfStrings(1, 5);
 
         Enumerable<String> e = enumerate(strings).skip(2);
         e.moveNext();

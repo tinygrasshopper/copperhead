@@ -9,6 +9,8 @@ import static org.copperhead.EnumeratorFactory.enumerate;
 import static org.copperhead.test.framework.TestAsserter.assertEquals;
 import static org.copperhead.test.framework.TestAsserter.assertFalse;
 import static org.copperhead.test.framework.TestAsserter.assertTrue;
+import static org.copperhead.test.framework.TestDataGenerator.arrayOfInts;
+import static org.copperhead.test.framework.TestDataGenerator.arrayOfStrings;
 
 public class EnumerableTest {
     public void shouldReturnWrapperOverIteratable() {
@@ -47,10 +49,7 @@ public class EnumerableTest {
     }
 
     public void shouldWorkWithArrays(){
-        String[] strings = new String [3];
-        strings[0] = "3";
-        strings[1] = "2";
-        strings[2] = "1";
+        String[] strings = arrayOfStrings("3", "2", "1");
         Enumerable<String> enumerate = enumerate(strings);
 
         assertTrue(enumerate.moveNext());
@@ -66,10 +65,7 @@ public class EnumerableTest {
     }
 
     public void shouldCheckIfConditionTrueForAll(){
-        String[] strings = new String [3];
-        strings[0] = "3";
-        strings[1] = "2";
-        strings[2] = "1";
+        String[] strings = arrayOfStrings("3", "2", "1");
 
         assertTrue(enumerate(strings).all(new Condition<String>() { public boolean exec(String p) { return p.length() == 1;}}));
         assertTrue(enumerate(strings).any(new Condition<String>() { public boolean exec(String p) { return p == "1";}}));
@@ -79,21 +75,13 @@ public class EnumerableTest {
     }
 
     public void shouldReturnLast(){
-        String[] strings = new String [3];
-        strings[0] = "3";
-        strings[1] = "2";
-        strings[2] = "1";
+        String[] strings = arrayOfStrings("3", "2", "1");
 
         assertEquals("1", enumerate(strings).last());
     }
 
     public void shouldReturnLastSatisfingCondition(){
-        Integer[] integers = new Integer [5];
-        integers[0] = 1;
-        integers[1] = 2;
-        integers[2] = 3;
-        integers[3] = 4;
-        integers[4] = 5;
+        Integer[] integers = arrayOfInts(1,5);
 
         assertEquals(4, enumerate(integers).last(new Condition<Integer>() {
             @Override
@@ -103,21 +91,13 @@ public class EnumerableTest {
         }));
     }
     public void shouldReturnFirst(){
-        String[] strings = new String [3];
-        strings[0] = "3";
-        strings[1] = "2";
-        strings[2] = "1";
+        String[] strings = arrayOfStrings("3", "2", "1");
 
         assertEquals("3", enumerate(strings).first());
     }
 
     public void shouldReturnFirstSatisfingCondition(){
-        Integer[] integers = new Integer [5];
-        integers[0] = 1;
-        integers[1] = 2;
-        integers[2] = 3;
-        integers[3] = 4;
-        integers[4] = 5;
+        Integer[] integers = arrayOfInts(1,5);
 
         assertEquals(2, enumerate(integers).first(new Condition<Integer>() {
             @Override

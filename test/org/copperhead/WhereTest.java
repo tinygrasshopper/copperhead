@@ -9,14 +9,12 @@ import static org.copperhead.EnumeratorFactory.enumerate;
 import static org.copperhead.test.framework.TestAsserter.assertEquals;
 import static org.copperhead.test.framework.TestAsserter.assertFalse;
 import static org.copperhead.test.framework.TestAsserter.assertTrue;
+import static org.copperhead.test.framework.TestDataGenerator.listOfStrings;
 
 public class WhereTest {
 
     public void shouldFilterUsingWhere() {
-        List<String> strings = new ArrayList<String>();
-        strings.add("one1");
-        strings.add("two1");
-        strings.add("three2");
+        List<String> strings = listOfStrings("one1", "two1", "three2");
 
         Enumerable<String> val =  enumerate(strings)
                 .where(new Condition<String>() {
@@ -33,10 +31,7 @@ public class WhereTest {
         assertFalse(val.moveNext());
     }
     public void shouldChainWhere() {
-        List<String> strings = new ArrayList<String>();
-        strings.add("one1");
-        strings.add("two1");
-        strings.add("three2");
+        List<String> strings = listOfStrings("one1", "two1", "three2");
 
         Enumerable<String> val =  enumerate(strings)
                 .where(new Condition<String>() { public boolean exec(String p) { return p.endsWith("1");}})

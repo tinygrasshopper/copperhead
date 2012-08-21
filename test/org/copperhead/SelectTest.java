@@ -9,13 +9,11 @@ import java.util.List;
 import static org.copperhead.test.framework.TestAsserter.assertEquals;
 import static org.copperhead.test.framework.TestAsserter.assertFalse;
 import static org.copperhead.test.framework.TestAsserter.assertTrue;
+import static org.copperhead.test.framework.TestDataGenerator.listOfStrings;
 
 public class SelectTest {
     public void shouldProjectFromClass(){
-        List<String> strings = new ArrayList<String>();
-        strings.add("aaaa");
-        strings.add("aaaaa");
-        strings.add("aaaaaa");
+        List<String> strings = listOfStrings("aaaa", "aaaaa", "aaaaaa");
 
         Enumerable<Integer> result = EnumeratorFactory.enumerate(strings)
                 .select(new Map<String, Integer>() { public Integer exec(String p) { return new Integer(p.length()); }});
@@ -34,10 +32,7 @@ public class SelectTest {
     }
 
     public void shouldAlsoBeKnownAsMap(){
-        List<String> strings = new ArrayList<String>();
-        strings.add("aaaa");
-        strings.add("aaaaa");
-        strings.add("aaaaaa");
+        List<String> strings = listOfStrings("aaaa", "aaaaa", "aaaaaa");
 
         Enumerable<Integer> result = EnumeratorFactory.enumerate(strings)
                 .map(new Map<String, Integer>() {
